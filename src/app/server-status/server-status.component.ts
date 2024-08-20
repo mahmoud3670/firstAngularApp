@@ -8,7 +8,20 @@ import { Component } from '@angular/core';
 export class ServerStatusComponent {
   ServerStatus:string="Online";
   serverId:number=10;
-  allowAddServer:boolean=false;
+  allowAddServer:boolean=true;
+  createdServer:string="No Server Created";
+  serverCount=0;
+  serverName="";
+  isServerCreated:boolean=false;
+  isServerClassStyle:boolean=false;
+  servers:any=[];
+
+serverStyle={
+  "background-color":"green"
+}
+serverClassStyle={
+  "serverClassStyle":this.isServerClassStyle
+}
 
   getServerStatus(){
     if(this.ServerStatus=="Online"){
@@ -16,5 +29,13 @@ export class ServerStatusComponent {
     }else{
       return "server is sleep";
     }
+  }
+
+  onAddServerClick(){
+this.createdServer="Created sucssesfly";
+this.serverCount++;
+this.isServerCreated=true;
+this.servers.push(this.serverName);
+this.serverName="";
   }
 }
