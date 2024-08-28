@@ -8,6 +8,9 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServerStatusComponent } from './server-status/server-status.component';
 import { FormsModule } from '@angular/forms';
+import { CoreComponent } from './core/core.component';
+import { PrintingServerComponent } from './printing-server/printing-server.component';
+import { ServerGeneratorComponent } from './server-generator/server-generator.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { FormsModule } from '@angular/forms';
     HeadComponent,
     ContentComponent,
     FooterComponent,
-    ServerStatusComponent
+    ServerStatusComponent,
+    CoreComponent,
+    PrintingServerComponent,
+    ServerGeneratorComponent
   ],
   imports: [
     BrowserModule,
