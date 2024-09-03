@@ -1,0 +1,9 @@
+<app-add-product (newProductEvent)="addProduct($event)"></app-add-product>
+<hr class="mb-5 mt-5">
+<div class="row">
+
+  @for (item of products; track $index) {
+    <app-products [product]="item" class="col-md-4 mb-4 "style="max-height:350px"></app-products>
+  }
+</div>
+

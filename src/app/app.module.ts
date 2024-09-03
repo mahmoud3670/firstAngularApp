@@ -7,13 +7,19 @@ import { HeadComponent } from './head/head.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { ProductsComponent } from './products/products.component';
+import { CoreComponent } from './core/core.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    ProductsComponent,
+    CoreComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
