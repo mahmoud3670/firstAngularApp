@@ -1,4 +1,6 @@
 <app-head></app-head>
 <!-- <app-server-status></app-server-status> -->
- <app-server-generator></app-server-generator>
+ <!-- <app-server-generator></app-server-generator> -->
 <!-- <app-footer></app-footer> -->
+<p appTestDirective [mouseoverColor]="'white'" [mouseleaveColor]="'red'">test</p>
+<p appHighlightDirective (changeStyleEvent)="onMouseIn($event)">test</p>

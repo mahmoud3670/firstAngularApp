@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { CoreComponent } from './core/core.component';
 import { PrintingServerComponent } from './printing-server/printing-server.component';
 import { ServerGeneratorComponent } from './server-generator/server-generator.component';
+import { TestDirectiveDirective } from './directives/test-directive.directive';
+import { HighlightDirectiveDirective } from './directives/highlight-directive.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ServerGeneratorComponent } from './server-generator/server-generator.co
     ServerStatusComponent,
     CoreComponent,
     PrintingServerComponent,
-    ServerGeneratorComponent
+    ServerGeneratorComponent,
+    TestDirectiveDirective,
+    HighlightDirectiveDirective
   ],
   imports: [
     BrowserModule,

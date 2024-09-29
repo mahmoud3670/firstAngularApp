@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'firstApp';
+
+  onMouseIn(isMouseIn:boolean){
+   
+console.log(isMouseIn)
+  }
 }
