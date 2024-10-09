@@ -7,13 +7,15 @@ import { HeadComponent } from './head/head.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { TdfComponent } from './tdf/tdf.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeadComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    TdfComponent
   ],
   imports: [
     BrowserModule,

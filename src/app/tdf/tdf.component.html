@@ -1,0 +1,93 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+      <!-- <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm"> -->
+      <div class="form-group">
+        <label for="username">Username :</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          ngModel
+          #name="ngModel"
+          class="form-control"
+        />
+        @if(name.invalid && name.touched){
+        <small class="text-danger">username is required</small>
+        }
+      </div>
+      <button
+        class="btn btn-primary mt-2 mb-2"
+        type="button"
+        (click)="suggestUsername()"
+      >
+        Suggest username
+      </button>
+      <div class="form-group">
+        <label for="email">email :</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          email
+          #email="ngModel"
+          ngModel
+          class="form-control"
+        />
+        @if(email.errors && email.touched){
+        <div>
+          @if(email.errors['required']){
+          <small class="text-danger">email is required</small>
+          } @if(email.errors['email']){
+          <small class="text-danger">email is correct</small>
+          }
+        </div>
+        }
+      </div>
+
+      @if (userData.invalid && userData.touched) {
+      <h1>Please check form</h1>
+      }
+
+      <div class="form-group">
+        <label for="secret">secret :</label>
+        <select
+          id="secret"
+          name="secret"
+          [ngModel]="defualtQuestion"
+          class="form-control"
+        >
+          <option value="teacher">what is your first teacher name</option>
+          <option value="doctor">how is your favorit doctor</option>
+        </select>
+      </div>
+      @for (gender of genders; track gender) {
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" ngModel [value]="gender" />
+          {{ gender }}
+        </label>
+      </div>
+      }
+      <div class="form-group mt-1">
+        <textarea
+          name="questionAnswer"
+          id=""
+          class="form-group"
+          [(ngModel)]="answer"
+          rows="3"
+        ></textarea>
+        <p>your replay is {{ answer }}</p>
+      </div>
+      <button
+        class="btn btn-success mt-2 mb-2"
+        type="submit"
+        [disabled]="!registerForm.valid"
+      >
+        submit
+      </button>
+    </div>
+  </form>
+</div>
