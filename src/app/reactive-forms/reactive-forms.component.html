@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="registerationForm">
+      <div class="form-group">
+        <label for="username">username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          formControlName="username"
+          [class.is-invalid]="
+            getControl('username')?.invalid && getControl('username')?.touched
+          "
+        />
+        @if(getControl('username')?.invalid && getControl('username')?.touched){
+        @if(getControl('username')?.errors?.['required']){
+        <small class="text-danger"> username is required</small>
+        } @if(getControl('username')?.errors?.['minlength']){
+        <small class="text-danger"> username is minlength</small>}
+        @if(getControl('username')?.errors?.['forbiddenName']){
+        <small class="text-danger">
+          {{getControl('username')?.errors?.['forbiddenName'].value}} is not
+          allowed</small
+        >}}
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+        @if (registerationForm.errors?.['misMatch']) {
+        <small class="text-danger"
+          >password and confirm password must be the same
+        </small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          formControlName="confirmPassword"
+        />
+      </div>
+      <br />
+      <div formGroupName="address">
+        <div class="form-group">
+          <label for="city">city</label>
+          <input
+            class="form-control"
+            id="city"
+            type="text"
+            formControlName="city"
+          />
+        </div>
+        <div class="form-group">
+          <label for="state">state</label>
+          <input
+            class="form-control"
+            id="state"
+            type="text"
+            formControlName="state"
+          />
+        </div>
+        <div class="form-group">
+          <label for="postalCode">postal Code</label>
+          <input
+            class="form-control"
+            id="postalCode"
+            type="text"
+            formControlName="postalCode"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="email">email</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          [class.is-invalid]="
+            getControl('email')?.invalid && getControl('email')?.touched
+          "
+        />
+        @if(getControl('email')?.invalid && getControl('email')?.touched){
+        @if(getControl('email')?.errors?.['required']){
+        <small class="text-danger"> email is required</small>
+        } @if(getControl('email')?.errors?.['email']){
+        <small class="text-danger"> email is unvalid</small>
+        } }
+      </div>
+      <div class="form-check mb-3">
+        <input
+          class="form-check-input"
+          formControlName="subscribe"
+          type="checkbox"
+          value=""
+          id="invalidCheck"
+          (click)="setEmailValidator()"
+        />
+        <label class="form-check-label" for="invalidCheck">send me offer</label>
+      </div>
+      <br />
+      <div
+        class="form-group"
+        *ngFor="let email of alternativeEmails.controls; let i = index"
+      >
+        <label>email # {{ i + 1 }}</label>
+        <input type="text" class="form-control" [formControlName]="i" />
+        <button class="btn btn-danger" (click)="removeEmail(i)">-</button>
+      </div>
+      <br />
+      <button class="btn btn-primary" type="submit">register</button>
+      <button class="btn btn-success" type="button" (click)="loadData()">
+        Load Data
+      </button>
+      <button class="btn btn-info" type="button" (click)="addNewEmail()">
+        add email
+      </button>
+    </form>
+  </div>
+</div>
